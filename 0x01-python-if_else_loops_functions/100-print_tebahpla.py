@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 for c in reversed(range(97, 123)):
     if c % 2 != 0:
         rest = 32

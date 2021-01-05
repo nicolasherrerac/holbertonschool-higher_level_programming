@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""This class validate a error"""
+
+
 class Square:
+    """Class of square"""
     __size = 0
 
     def __init__(self, size=0):

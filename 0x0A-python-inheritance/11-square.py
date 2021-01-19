@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Function"""
 
+
 Rectangle = __import__('9-rectangle').Rectangle
+
 
 class Square(Rectangle):
     """Create class"""

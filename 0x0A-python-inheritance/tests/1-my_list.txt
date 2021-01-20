@@ -1,0 +1,43 @@
+==========================
+How use 1-my_list function
+==========================
+
+Usage
+-----
+Import the function:
+
+	>>> MyList = __import__('1-my_list').MyList
+
+Checking for empty list:
+
+	>>> l = MyList()
+	>>> l.print_sorted()
+	[]
+
+Add new elements:
+
+    >>> l.append(1)
+    >>> l.append(2)
+    >>> l.append(3)
+    >>> l.append(4)
+    >>> print(l)
+    [1, 2, 3, 4]
+
+    >>> l.append(8)
+    >>> l.append(6)
+    >>> l.append(9)
+    >>> l.append(10)
+    >>> l.append(1)
+    >>> l.print_sorted()
+    [1, 1, 2, 3, 4, 6, 8, 9, 10]
+
+    >>> l.append(-5)
+    >>> l.append(1)
+    >>> print(l)
+    [1, 2, 3, 4, 8, 6, 9, 10, 1, -5, 1]
+    >>> l.print_sorted()
+    [-5, 1, 1, 1, 2, 3, 4, 6, 8, 9, 10]
+
+    >>> l.print_sorted(l)
+    Traceback (most recent call last):
+    TypeError: print_sorted() takes 1 positional argument but 2 were given

@@ -76,3 +76,11 @@ Import the function:
 	>>> b.integer_validator("bytes", b"bytes")
 	Traceback (most recent call last):
 	TypeError: bytes must be an integer
+
+	>>> b.integer_validator()
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+	>>> b.integer_validator("complex", complex(1, 1))
+	Traceback (most recent call last):
+	TypeError: complex must be an integer

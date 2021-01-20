@@ -11,7 +11,7 @@ class Student():
 
     def to_json(self, attrs=None):
         """same as 10-class_to_json.py"""
-        if attrs == None:
+        if attrs is None:
             return self.__dict__
         lista = {}
         for i, c in self.__dict__.items():

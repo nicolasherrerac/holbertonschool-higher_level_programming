@@ -54,7 +54,7 @@ class Rectangle(Base):
     def y(self):
         return self.__y
     
-    @x.setter
+    @y.setter
     def y(self, value):
         if type(value) is not int:
             raise TypeError("y must be an integer")
@@ -101,3 +101,7 @@ class Rectangle(Base):
                     self.x = value
                 elif key == "y":
                     self.y = value
+    
+    def to_dictionary(self):
+        return {'id': self.id, 'width': self.width,\
+                'height': self.height, 'x': self.x, 'y': self.y}

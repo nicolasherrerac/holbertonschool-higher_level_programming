@@ -29,10 +29,14 @@ class Square(Rectangle):
                 if i == 1:
                     self.size = arg
                 if i == 2:
-                    self.x = arg
+                    setattr(self, "x", arg)
                 if i == 3:
-                    self.y = arg
+                    setattr(self, "y", arg)
         if kwargs is not None and kwargs is not ():
             for (key, value) in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
+    
+    def to_dictionary(self):
+        return {'id': self.id, 'size': self.size,\
+                'x': self.x, 'y': self.y}

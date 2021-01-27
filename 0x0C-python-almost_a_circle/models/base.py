@@ -6,6 +6,7 @@ import json
 class Base():
     """Create class"""
     __nb_objects = 0
+
     def __init__(self, id=None):
         if id is not None:
             self.id = id
@@ -43,7 +44,7 @@ class Base():
             dummy = cls(6)
         dummy.update(**dictionary)
         return dummy
-    
+
     @classmethod
     def load_from_file(cls):
         file = cls.__name__ + ".json"

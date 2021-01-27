@@ -38,9 +38,9 @@ class Square(Rectangle):
                 if i == 1:
                     self.size = arg
                 if i == 2:
-                    setattr(self, "x", arg)
+                    self.x = arg
                 if i == 3:
-                    setattr(self, "y", arg)
+                    self.y = arg
         if kwargs is not None and kwargs is not ():
             for (key, value) in kwargs.items():
                 if hasattr(self, key):

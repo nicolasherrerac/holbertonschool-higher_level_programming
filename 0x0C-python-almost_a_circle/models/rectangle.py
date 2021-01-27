@@ -15,8 +15,8 @@ class Rectangle(Base):
     @property
     def width(self):
         """setter"""
-        return self.__width 
-    
+        return self.__width
+
     @width.setter
     def width(self, value):
         if type(value) is not int:
@@ -41,7 +41,7 @@ class Rectangle(Base):
     @property
     def x(self):
         return self.__x
-    
+
     @x.setter
     def x(self, value):
         if type(value) is not int:
@@ -53,7 +53,7 @@ class Rectangle(Base):
     @property
     def y(self):
         return self.__y
-    
+
     @y.setter
     def y(self, value):
         if type(value) is not int:
@@ -61,7 +61,7 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-        
+
     def area(self):
         return self.__width * self.__height
 
@@ -74,7 +74,11 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x,
+                                                       self.y,
+                                                       self.width,
+                                                       self.height)
 
     def update(self, *args, **kwargs):
         if args:
@@ -101,7 +105,7 @@ class Rectangle(Base):
                     self.x = value
                 elif key == "y":
                     self.y = value
-    
+
     def to_dictionary(self):
-        return {'id': self.id, 'width': self.width,\
+        return {'id': self.id, 'width': self.width,
                 'height': self.height, 'x': self.x, 'y': self.y}

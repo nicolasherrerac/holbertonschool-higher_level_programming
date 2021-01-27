@@ -16,7 +16,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """setter"""
+        """getter method"""
         return self.__width
 
     @width.setter
@@ -30,21 +30,21 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """height"""
+        """getter method"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """setter heigth"""
+        """setter height"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
-            raise ValueError("height must be >= 0")
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
     def x(self):
-        """x"""
+        """getter method"""
         return self.__x
 
     @x.setter
@@ -58,7 +58,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """y"""
+        """getter method"""
         return self.__y
 
     @y.setter
@@ -71,11 +71,11 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """area"""
+        """area of rectangle"""
         return self.__width * self.__height
 
     def display(self):
-        """display"""
+        """display rectangle"""
         print("\n" * self.__y, end="")
         for i in range(self.__height):
             print(" " * self.__x, end="")
@@ -84,7 +84,7 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        """print"""
+        """print atributes"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x,
                                                        self.y,

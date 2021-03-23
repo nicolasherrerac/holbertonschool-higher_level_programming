@@ -1,0 +1,1 @@
+In this project we learning about JavaScript - Objects, Scopes and Closures.

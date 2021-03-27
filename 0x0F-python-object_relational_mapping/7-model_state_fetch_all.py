@@ -12,8 +12,9 @@ if __name__ == '__main__':
     mydata = argv[3]
 
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(myuser, mypass, mydata), pool_pre_ping=True)
+        'mysql+mysqldb://{}:{}@localhost/{}'
+        .format(myuser, mypass, mydata), pool_pre_ping=True)
     session = sessionmaker(bind=engine)
-    for instance in session().query(State).order_by(State.id):
+    for instance in session().query(State).order_by(State.id).all():
         print("{}: {}".format(instance.id, instance.name))
     session().close()

@@ -19,6 +19,7 @@ if __name__ == '__main__':
         .format(myuser, mypass, mydata), pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
+    Base.medata.create_all(engine)
     st = session.query(State, City).filter(
         State.id == City.state_id).order_by(City.id).all()
     for c, s in st:

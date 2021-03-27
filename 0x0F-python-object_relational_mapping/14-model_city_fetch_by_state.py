@@ -17,11 +17,11 @@ if __name__ == '__main__':
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'
         .format(myuser, mypass, mydata), pool_pre_ping=True)
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    Base.metadata.create_all(engine)
-    st = session.query(State, City).filter(
-        State.id == City.state_id).order_by(City.id).all()
-    for c, s in st:
+    query_row = session.query(City, State).filter(
+        City.state_id == State.id).order_by(City.id).all()
+    for c, s in query_row:
         print("{}: ({}) {}".format(s.name, c.id, c.name))
     session.close()

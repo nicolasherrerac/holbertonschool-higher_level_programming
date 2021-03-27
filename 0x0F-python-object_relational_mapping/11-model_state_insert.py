@@ -17,6 +17,7 @@ if __name__ == '__main__':
         .format(myuser, mypass, mydata), pool_pre_ping=True)
     Session = sessionmaker()
     session = Session(bind=engine)
+    Base.metadata.create_all(engine)
     st = State(name="Lousiana")
     session.add(st)
     session.commit()

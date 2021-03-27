@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Lists all states from the database hbtn_0e_0_usa"""
+"""
+    displays all values in the states table of hbtn_0e_0_usa
+    where name matches the argument.
+"""
 import MySQLdb
 from sys import argv
 
@@ -13,7 +16,7 @@ if __name__ == '__main__':
     db = MySQLdb.connect(host="localhost", port=3306, user=myuser,
                          passwd=mypass, db=mydata)
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name = '{}'\
+    cursor.execute("SELECT * FROM states WHERE BINARY name = '{}'\
         ORDER BY id;".format(argument))
     r = cursor.fetchall()
     for x in r:

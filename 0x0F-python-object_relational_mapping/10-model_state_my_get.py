@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Prints the first State object from the database hbtn_0e_6_usa"""
+"""
+    prints the State object with the name passed
+    as argument from the database hbtn_0e_6_usa
+
+"""
 from model_state import State, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -12,12 +16,14 @@ if __name__ == '__main__':
     mydata = argv[3]
 
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(myuser, mypass, mydata), pool_pre_ping=True)
+        'mysql+mysqldb://{}:{}@localhost/{}'
+        .format(myuser, mypass, mydata), pool_pre_ping=True)
     session = sessionmaker(bind=engine)
-    instance = session().query(State).filter(
-        State.name.like('%a%')).order_by(State.id).all()
-    if instance:
-        for x in instance:
-            if 'a' in x.name:
-                print("{}: {}".format(x.id, x.name))
+    instanc = session().query(State).filter(State.name == argv[4]).all()
+    if instanc:
+        for x in instanc:
+            if x.name == argv[4]:
+                print("{}".format(x.id))
+    else:
+        print("Not found")
     session().close()

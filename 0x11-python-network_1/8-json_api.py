@@ -5,6 +5,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
+    """API"""
     if len(argv) < 2:
         q = ""
     else:

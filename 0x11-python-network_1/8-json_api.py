@@ -1,21 +1,22 @@
 #!/usr/bin/python3
-"""takes in a letter and sends a POST request"""
+"""
+Script that takes in a letter and sends a POST
+"""
+import sys
 import requests
-from sys import argv
 
 
-if __name__ == "__main__":
-    """API"""
-    if len(argv) < 2:
-        q = ""
-    else:
-        q = argv[1]
-        r = requests.post('http://0.0.0.0:5000/search_user', data={'q': q})
+if __name__ == '__main__':
+    """Search API"""
+    letter = "" if len(sys.argv) == 1 else sys.argv[1]
+    rq = {"q": letter}
+
+    r = requests.post("http://0.0.0.0:5000/search_user", data=rq)
     try:
-        response = r.json()
-        if response == {}:
+        res = r.json()
+        if res == {}:
             print("No result")
         else:
-            print("[{}] {}".format(response.get("id"), response.get("name")))
+            print("[{}] {}".format(res.get("id"), res.get("name")))
     except ValueError:
         print("Not a valid JSON")

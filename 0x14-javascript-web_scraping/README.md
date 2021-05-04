@@ -1,0 +1,1 @@
+In this project we learn about JavaScript - Web scraping.
